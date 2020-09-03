@@ -1,3 +1,3 @@
-##TESTING
+## TESTING
 
 Sample react native application
