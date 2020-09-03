@@ -1,16 +1,12 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import NumericInput from "react-native-numeric-input";
-import { Table, Row, Rows, Col } from "react-native-table-component";
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
   TextInput,
-  TouchableOpacity,
   Button,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -60,11 +56,11 @@ export default class App extends React.PureComponent {
           .then((value) => {
             this.state.isLogin = true;
             this.setState({ jwtToken: value.token });
-            console.log("Login JWT Token :" + value.token);
+            // console.log("Login JWT Token :" + value.token);
           });
       } catch (e) {
-        console.log(e);
-        console.log("----------------------------");
+        // console.log(e);
+        // console.log("----------------------------");
       }
       alert("Login Successful");
       // document.getElementById("login").style.display = "None";
@@ -109,8 +105,8 @@ export default class App extends React.PureComponent {
           }, 0);
         });
       } catch (e) {
-        console.log(e);
-        console.log("------------------");
+        // console.log(e);
+        // console.log("------------------");
       }
       // movies.push(movie)
       // console.log(movies);
@@ -137,15 +133,15 @@ export default class App extends React.PureComponent {
         .then((results) => {
           results.forEach((item) => {
             data.push([item._id, item.name, item.rating]);
-            console.log(data);
+            // console.log(data);
           });
           this.setState({ data: data });
           this.setState({ getFlag: true });
         });
       // console.log("Data ", data);
     } catch (e) {
-      console.log(e);
-      console.log("-------------------");
+      // console.log(e);
+      // console.log("-------------------");
     }
     return false;
   };
@@ -158,7 +154,7 @@ export default class App extends React.PureComponent {
     this.setState({
       data,
     });
-    console.log("after", data[0]);
+    // console.log("after", data[0]);
   };
 
   saveFilms = (index) => {
@@ -169,8 +165,8 @@ export default class App extends React.PureComponent {
     var rat = this.state.newRating;
     id = data[index][0];
     var jwtToken = this.state.jwtToken;
-    console.log("updated Data: ", data[index]);
-    console.log("new Rating" + rat);
+    // console.log("updated Data: ", data[index]);
+    // console.log("new Rating" + rat);
 
     if (rat.length == 0) {
       alert("Rating cannot be empty");
@@ -199,8 +195,8 @@ export default class App extends React.PureComponent {
           }, 0);
         });
       } catch (e) {
-        console.log(e);
-        console.log("------------------");
+        // console.log(e);
+        // console.log("------------------");
       }
 
       this.getFilms();
@@ -251,6 +247,7 @@ export default class App extends React.PureComponent {
                 {this.state.data.map((movie, index) => {
                   return (
                     <View
+                      key={data[index][0]}
                       style={{
                         display: "flex",
                         flexDirection: "row",
@@ -302,8 +299,8 @@ export default class App extends React.PureComponent {
 
   moviesScreen = () => {
     const { data } = this.state;
-    console.log("********", this.state.data);
-    console.log("New rating", this.state.newRating);
+    // console.log("********", this.state.data);
+    // console.log("New rating", this.state.newRating);
     return (
       <View>
         <View style={styles.login}>
@@ -361,6 +358,7 @@ export default class App extends React.PureComponent {
                 {this.state.data.map((movie, index) => {
                   return (
                     <View
+                      key={data[index][0]}
                       style={{
                         display: "flex",
                         flexDirection: "row",
@@ -412,11 +410,11 @@ export default class App extends React.PureComponent {
 
   render() {
     // console.log(this.state.data);
-    console.log("text", this.state.isLogin);
-    console.log("User name:", this.state.userName);
-    console.log("Movie Name: ", this.state.movieName);
-    console.log("JWT", this.state.jwtToken);
-    console.log("data", this.state.data[0]);
+    // console.log("text", this.state.isLogin);
+    // console.log("User name:", this.state.userName);
+    // console.log("Movie Name: ", this.state.movieName);
+    // console.log("JWT", this.state.jwtToken);
+    // console.log("data", this.state.data[0]);
 
     return (
       <SafeAreaView style={styles.container}>

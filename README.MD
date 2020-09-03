@@ -1,3 +1,5 @@
-## TESTING
+## Movies Application
 
-Sample react native application
+React native application that consumes API services written on node.js with Mongo DB backend.
+
+
