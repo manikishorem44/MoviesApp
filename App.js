@@ -19,7 +19,6 @@ export default class App extends React.PureComponent {
     super(props);
     this.state = {
       data: "",
-      tableHead: ["MovieName", "Rating"],
       userName: "",
       isLogin: false,
       movieName: "",
@@ -110,7 +109,6 @@ export default class App extends React.PureComponent {
       }
       // movies.push(movie)
       // console.log(movies);
-      this.setState({ movieName: "" });
       return false;
     }
   };
@@ -150,7 +148,7 @@ export default class App extends React.PureComponent {
     // const { refresh, data } = this.state;
     // console.log(this.state.data[0]);
     const data = [...this.state.data];
-    data[index].push(true); //[sye, 4, true]
+    data[index].push(true); //[id , sye, 4, true]
     this.setState({
       data,
     });
@@ -198,11 +196,9 @@ export default class App extends React.PureComponent {
         // console.log(e);
         // console.log("------------------");
       }
-
-      this.getFilms();
       // movies.push(movie)
       // console.log(movies);
-
+      this.getFilms();
       return false;
     }
   };
@@ -242,7 +238,6 @@ export default class App extends React.PureComponent {
                 >
                   <Text style={styles.name}>Movie Name</Text>
                   <Text style={styles.name}>Rating</Text>
-                  <Text style={styles.name}>Mode</Text>
                 </View>
                 {this.state.data.map((movie, index) => {
                   return (
@@ -267,24 +262,6 @@ export default class App extends React.PureComponent {
                             }
                           />
                         </View>
-                      )}
-                      {!data[index][3] && (
-                        <Button
-                          color="orange"
-                          title="Edit"
-                          style={styles.userBtn}
-                          onPress={() => this.editFilms(index)}
-                          key={index}
-                        />
-                      )}
-                      {data[index][3] && (
-                        <Button
-                          color="orange"
-                          title="Save"
-                          style={styles.userBtn}
-                          onPress={() => this.saveFilms(index)}
-                          key={index}
-                        />
                       )}
                     </View>
                   );
@@ -356,6 +333,7 @@ export default class App extends React.PureComponent {
                   <Text style={styles.name}>Mode</Text>
                 </View>
                 {this.state.data.map((movie, index) => {
+                  //[[id, movie, rating]]
                   return (
                     <View
                       key={data[index][0]}
