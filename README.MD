@@ -9,5 +9,5 @@ Mongo DB,
 React Native (Expo)
 
 ## How to run
-Go to project directory
-Run npm run start
+Go to project directory,
+Run `npm run start`
