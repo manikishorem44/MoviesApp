@@ -4,6 +4,6 @@ Movies App is a React native application where a user can login and provide his 
 
 
 ## Technology Stack
-Node.js (Express)
-Mongo DB
+Node.js (Express),
+Mongo DB,
 React Native (Expo)
