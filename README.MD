@@ -7,3 +7,7 @@ Movies App is a React native application where a user can login and provide his 
 Node.js (Express),
 Mongo DB,
 React Native (Expo)
+
+## How to run
+Go to project directory
+Run npm run start
